@@ -10,11 +10,10 @@ from tkinter.constants import X
 from PIL import Image, ImageTk,ImageFilter
 import io
 
-spotlight_dir = "%USERPROFILE%\\AppData\\Local\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets"
-spotlight_dir = "C:\\Users\\User\\AppData\\Local\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets"
+spotlight_dir = os.environ['USERPROFILE']+"\\AppData\\Local\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets"
 export_dir = '.'
 
-def main2():
+def main():
     root = tk.Tk()
     app = App(root)
     app.mainloop()
@@ -38,26 +37,6 @@ def get_new_images():
                 #copy this file to export dir
                 new_images.append(filename)
     return new_images
-
-def main():
-    
-    # making a list of all saved jpg files in
-    # export director
-    saved_files = []
-    for filename in os.listdir(export_dir):
-        if filename.endswith('.jpg'):
-            saved_files.append(filename)
-    
-    # 
-    for filename in os.listdir(spotlight_dir):
-        file = os.path.join(spotlight_dir,filename)
-        if os.path.getsize(file) > (100 * 1024) and isJPEG(file):
-            # check if this file already saved
-            if filename+'.jpg' not in saved_files:
-                #copy this file to export dir
-                shutil.copyfile(file,export_dir+filename+".jpg")
-            else:
-                print('same file',filename)
                 
 
 def hashfile(file):
@@ -209,5 +188,4 @@ check_unselected_image = Image.open(io.BytesIO(check_unselected))
     
 
 if __name__=='__main__':
-    #main()
-    main2()
+    main()
