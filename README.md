@@ -3,5 +3,6 @@ Helps in saving images cached by Windows Spotlight. This a python code so python
 
 ### Screenshots
 
-![Screenshot 2021-06-13 004423 (Small)](https://user-images.githubusercontent.com/47380353/121787000-1f693200-cbe1-11eb-9849-dc721587e728.png)
+![Screenshot 2021-06-13 004423(small)](https://user-images.githubusercontent.com/47380353/121787072-a9b19600-cbe1-11eb-8929-979f894a2a1a.jpg)
+
 
